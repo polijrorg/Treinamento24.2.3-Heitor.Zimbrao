@@ -44,3 +44,4 @@ This template has others configurations that use the main branch as base, to acc
 
 - MaterialUI = branch: `feat/MaterialUI`
 - Next 12 + ReactQuery = branch: `feat/next12` ( This will be the main branch after some tests )
+teste 0101
