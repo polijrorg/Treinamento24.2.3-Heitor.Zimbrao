@@ -5,3 +5,8 @@ export const Logo = styled.img`
     right: 16px;
     bottom: 16px;
 `;
+export const Piu = styled.img`
+    width: 48px;
+    height: 48px;
+    margin: 32px;
+`;

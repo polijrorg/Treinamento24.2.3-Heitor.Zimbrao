@@ -1,34 +1,43 @@
-import ExampleComponent from 'components/ExampleComponent';
 import React from 'react';
-import { GrayButton, SimpleButton } from 'components/SimplesButton';
-
+import {
+    OnButton,
+    BNot,
+    BMensagens,
+    BSalvos,
+    BPerfil,
+    BConfiguracoes,
+    OuvirPiu,
+    DarPiu,
+    Ppiu,
+    Hr,
+    Pius
+} from 'components/SimplesButton';
 import * as S from './styles';
 
 const HomeTemplate = () => {
     return (
         <S.Container>
             <S.LEsquerda>
-                <S.Login>
-                    <h1>Login</h1>
-                    <GrayButton />
-                    <S.EsqueceuSenha>
-                        <a
-                            href="https://www.netflix.com/br/login"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Esqueceu a Senha?
-                        </a>
-                    </S.EsqueceuSenha>
-                    <S.LoginButton2>
-                        <SimpleButton />
-                    </S.LoginButton2>
-                </S.Login>
+                <Ppiu />
+                <OnButton />
+                <BNot />
+                <BMensagens />
+                <BSalvos />
+                <BPerfil />
+                <BConfiguracoes />
             </S.LEsquerda>
+            <S.Centro>
+                <OuvirPiu />
+                <DarPiu />
+                <Hr />
+                <Pius />
+                <Pius />
+                <Pius />
+                <Pius />
+            </S.Centro>
             <S.LDireita>
-                <h1>img</h1>
+                <OnButton />
             </S.LDireita>
-            <ExampleComponent width="128px" />
         </S.Container>
     );
 };

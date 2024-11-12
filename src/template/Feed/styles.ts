@@ -8,7 +8,7 @@ export const Title = styled.h1`
 
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 21% 55% 24%;
     min-height: 100vh;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.sky1};
@@ -18,21 +18,29 @@ export const Container = styled.div`
 export const LEsquerda = styled.div`
     display: flex;
     flex-direction: column;
-    width: 320px;
     background: var(--Slate-2, #1a1d1e);
     border-right: 1px solid var(--Slate-8, #4c5155);
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     color: white;
-
-    gap: 240px;
 `;
-export const LDireita = styled.div`
-    background: #004c97;
-    width: 100%;
+export const Centro = styled.div`
+    display: flex;
+    flex-direction: column;
+    background: var(--Slate-1, #151718);
+    padding: 32px;
     height: 100%;
-    margin: 0px;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+`;
+
+export const LDireita = styled.div`
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--Slate-8, #4c5155);
+    background: var(--Slate-2, #1a1d1e);
 `;
 
 export const Comment = styled.p`
