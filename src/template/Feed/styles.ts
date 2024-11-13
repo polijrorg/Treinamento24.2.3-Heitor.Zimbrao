@@ -25,6 +25,16 @@ export const LEsquerda = styled.div`
     justify-content: left;
     color: white;
 `;
+
+export const Sidebar = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    position: fixed;
+`;
+
 export const Centro = styled.div`
     display: flex;
     flex-direction: column;
@@ -32,13 +42,15 @@ export const Centro = styled.div`
     padding: 32px;
     height: 100%;
     align-items: center;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
+    overflow: auto;
 `;
 
 export const LDireita = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
     border-left: 1px solid var(--Slate-8, #4c5155);
     background: var(--Slate-2, #1a1d1e);
 `;

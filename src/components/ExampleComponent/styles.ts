@@ -10,3 +10,4 @@ export const Piu = styled.img`
     height: 48px;
     margin: 32px;
 `;
+export const retweet = styled.img``;

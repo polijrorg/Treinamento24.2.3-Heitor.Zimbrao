@@ -10,7 +10,9 @@ import {
     DarPiu,
     Ppiu,
     Hr,
-    Pius
+    Pius,
+    PiusAlta,
+    Divisao
 } from 'components/SimplesButton';
 import * as S from './styles';
 
@@ -18,13 +20,15 @@ const HomeTemplate = () => {
     return (
         <S.Container>
             <S.LEsquerda>
-                <Ppiu />
-                <OnButton />
-                <BNot />
-                <BMensagens />
-                <BSalvos />
-                <BPerfil />
-                <BConfiguracoes />
+                <S.Sidebar>
+                    <Ppiu />
+                    <OnButton />
+                    <BNot />
+                    <BMensagens />
+                    <BSalvos />
+                    <BPerfil />
+                    <BConfiguracoes />
+                </S.Sidebar>
             </S.LEsquerda>
             <S.Centro>
                 <OuvirPiu />
@@ -36,7 +40,8 @@ const HomeTemplate = () => {
                 <Pius />
             </S.Centro>
             <S.LDireita>
-                <OnButton />
+                <PiusAlta />
+                <Divisao />
             </S.LDireita>
         </S.Container>
     );
