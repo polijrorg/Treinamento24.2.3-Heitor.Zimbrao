@@ -108,7 +108,7 @@ export const PiuPesquisa = styled.input`
     display: flex;
     justify-content: space-between;
     align-items: right;
-    align-self: stretch;
+    align-self: flex-start;
     border-radius: 8px;
     background: var(--Slate-8, #4c5155);
     height: 40px;
@@ -116,6 +116,7 @@ export const PiuPesquisa = styled.input`
     width: 100%;
     padding: 8px;
     color: var(--Slate-12, #ecedee);
+    height: 24px;
 `;
 export const Anexos = styled.div`
     display: flex;
@@ -135,9 +136,14 @@ export const Imagens = styled.img`
     align-items: center;
     cursor: pointer;
 `;
-export const Send = styled(Imagens)`
+export const Send = styled.button`
     margin-left: auto;
     margin-right: 30px;
+    width: 24px;
+    height: 24px;
+    background-color: #4c5155;
+    border: none;
+    cursor: pointer;
 `;
 
 export const DarPiu = styled(OuvirPiu)`
@@ -163,8 +169,9 @@ export const Ppiu = styled(BNot)`
 export const Botoes = styled.div`
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center;
-    margin-left: -540px;
+    justify-content: left;
+    margin-left: 160px;
+    width: 100%;
 `;
 
 export const PiusAlta = styled(Ppiu)`
@@ -177,6 +184,8 @@ export const Hr = styled.div`
     margin-left: 20px;
     margin-right: 20px;
     width: 100%;
+    display: flex;
+    margin-bottom: 10px;
 `;
 
 export const Divisao = styled.div`
@@ -250,15 +259,15 @@ export const ActionButton = styled.button`
     border: none;
     color: #657786;
     cursor: pointer;
-    display: grid;
-    align-items: left;
-    justify-content: left;
-    gap: 5px;
+    align-items: center;
+    gap: auto;
     &:hover {
         color: #1da1f2;
     }
-    margin-left: -70px;
+    margin-left: -75px;
     margin-top: 30px;
+    display: flex;
+    justify-content: left;
 `;
 
 export const RePiu = styled.img`
@@ -271,15 +280,52 @@ export const Curtida = styled(RePiu)``;
 
 export const PiuTrend = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Alinha os itens lado a lado */
     align-items: flex-start;
-    gap: 4px;
+    gap: 4px; /* Espaçamento entre os itens */
     flex: 1 0 0;
-    align-self: stretch;
+    padding: 16px;
 `;
+
 export const PiuTrendImage = styled.img`
     align-items: flex-start;
     width: 112px;
     height: 112px;
     flex-shrink: 0;
+    margin-right: 8px;
+`;
+
+export const PiuTrendHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--Slate-12, #ecedee);
+    font-weight: 500;
+`;
+
+export const PiuTrendText = styled.div`
+    color: var(--Slate-12, #ecedee);
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    display: flex;
+    height: 112px;
+    width: 184px;
+`;
+export const Piutrenddiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+export const TrendDivider = styled.div`
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 8px 0;
 `;

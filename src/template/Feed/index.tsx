@@ -12,7 +12,8 @@ import {
     Hr,
     Pius,
     PiusAlta,
-    Divisao
+    Divisao,
+    PiuTrend
 } from 'components/SimplesButton';
 import * as S from './styles';
 
@@ -35,13 +36,11 @@ const HomeTemplate = () => {
                 <DarPiu />
                 <Hr />
                 <Pius />
-                <Pius />
-                <Pius />
-                <Pius />
             </S.Centro>
             <S.LDireita>
                 <PiusAlta />
                 <Divisao />
+                <PiuTrend />
             </S.LDireita>
         </S.Container>
     );

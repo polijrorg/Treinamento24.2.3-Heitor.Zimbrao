@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 
 export const SimpleButton: React.FC = () => {
@@ -65,24 +65,11 @@ export const OuvirPiu: React.FC = () => {
         <S.OuvirPiu>
             <S.PiuPesquisa type="text" placeholder="Ouvir um piu..." />
             <S.Anexos>
-                <S.Send src="/assets/images/ci_search.png" alt="pesquisa" />
+                <S.Send>
+                    <img src="/assets/images/ci_search.png" alt="pesquisa" />
+                </S.Send>
             </S.Anexos>
         </S.OuvirPiu>
-    );
-};
-export const DarPiu: React.FC = () => {
-    return (
-        <S.DarPiu>
-            <S.PiuTexxt type="text" placeholder="Quero dar um piu..." />
-            <S.Anexos>
-                <S.Imagens src="/assets\images\Image_02.png" alt="fotos" />
-                <S.Imagens src="/assets\images\Video.png" alt="videos" />
-                <S.Imagens src="/assets\images\frame-2.png" alt="pessoas" />
-                <S.Imagens src="/assets\images\Tag.png" alt="aa" />
-                <S.Imagens src="/assets\images\Frame-3.png" alt="aaa" />
-                <S.Send src="/assets\images\Paper_Plane.png" alt="send" />
-            </S.Anexos>
-        </S.DarPiu>
     );
 };
 
@@ -109,51 +96,179 @@ export const Hr: React.FC = () => {
 export const Divisao: React.FC = () => {
     return <S.Divisao />;
 };
-
 export const Pius: React.FC = () => {
+    const [pius] = useState([
+        {
+            Piuname: 'Pedro Parente',
+            PiuArroba: '@Pedropapers',
+            ImgPerfil: '/assets/images/file-_2_.png',
+            PiuText:
+                'Mano, esse enem tinha umas questoes de fuder. Disseram que pelo contexto a nota de corte diminua e a quantidade de acertos pra passar em med abaixe'
+        },
+        {
+            Piuname: 'Victor V',
+            PiuArroba: 'vitao?',
+            ImgPerfil: '/assets/images/file.png',
+            PiuText:
+                'po, mano. quero ficar rico do dia pra noite, vamo começar a fazer uma máquina de dinheiro. Enem é o meu p*** quero mesmo é fazer mkt digital. Vou comecar um plr essa semana ai'
+        },
+        {
+            Piuname: 'Marco Tulio',
+            PiuArroba: 'marocaroca',
+            ImgPerfil: '/assets/images/file-_1_.png',
+            PiuText:
+                'hoje a noite eu to pro crime, aonde é o after? vou pra casa do ca***** beber até esquecer o vestibular'
+        }
+    ]);
+
+    const [curtida, setCurtida] = useState(0);
+    const [isCurtido, setIsCurtido] = useState(false);
+    const [repiu, setRepiu] = useState(0);
+    const [isRePiu, setIsRepiu] = useState(false);
+    const [coment, setComent] = useState(0);
+    const handleCurtidaClick = () => {
+        if (isCurtido) {
+            setCurtida(curtida - 1);
+        } else {
+            setCurtida(curtida + 1);
+        }
+        setIsCurtido(!isCurtido);
+    };
+    const handleRePiu = () => {
+        if (isRePiu) {
+            setRepiu(repiu - 1);
+        } else {
+            setRepiu(repiu + 1);
+        }
+        setIsRepiu(!isRePiu);
+    };
+    const handleComent = () => {
+        setComent(coment + 1);
+    };
+
     return (
-        <S.Pius>
-            <S.ImgPerfil
-                src="/assets\images\pedro-parente.png"
-                alt="ftperfil"
-            />
-            <S.ContPiu>
-                <S.PiuHeader>
-                    <S.PiuName>
-                        Heitor Zimbrão
-                        <S.PiuArroba>@heitorzimbrao</S.PiuArroba>
-                    </S.PiuName>
-                </S.PiuHeader>
-                <S.PiuText>
-                    Po daqui 2 semanas vai vir uma bomba de semana de prova.
-                    Melhor Estudar pra Caramba! Amassar essas provas da Escola
-                    Politécnica.
-                    <S.Botoes>
-                        <S.ActionButton>
-                            <S.RePiu
-                                src="/assets\images\icons8-retuitar-48.png"
-                                alt="ret"
-                            />
-                        </S.ActionButton>
-                        <S.ActionButton>
-                            <S.MePiu
-                                src="/assets\images\Chat_Circle.png"
-                                alt="mensagens"
-                            />
-                        </S.ActionButton>
-                        <S.ActionButton>
-                            <S.Curtida
-                                src="/assets\images\Heart_02.png"
-                                alt="curtida"
-                            />
-                        </S.ActionButton>
-                    </S.Botoes>
-                </S.PiuText>
-            </S.ContPiu>
-        </S.Pius>
+        <div>
+            {pius.map(({ Piuname, PiuArroba, ImgPerfil, PiuText }) => (
+                <S.Pius key="index">
+                    <S.ImgPerfil src={ImgPerfil} alt="ftperfil" />
+                    <S.ContPiu>
+                        <S.PiuHeader>
+                            <S.PiuName>
+                                {Piuname}
+                                <S.PiuArroba>{PiuArroba}</S.PiuArroba>
+                            </S.PiuName>
+                        </S.PiuHeader>
+                        <S.PiuText>
+                            {PiuText}
+                            <S.Botoes>
+                                <S.ActionButton onClick={() => handleRePiu()}>
+                                    <S.RePiu
+                                        src="/assets/images/Arrow_Reload_02.png"
+                                        alt="ret"
+                                    />
+                                    <span>{repiu}</span>
+                                </S.ActionButton>
+                                <S.ActionButton onClick={() => handleComent()}>
+                                    <S.MePiu
+                                        src="/assets/images/Chat_Circle.png"
+                                        alt="mensagens"
+                                    />
+                                    <span>{coment}</span>
+                                </S.ActionButton>
+                                <S.ActionButton
+                                    onClick={() => handleCurtidaClick()}
+                                >
+                                    <S.Curtida
+                                        src="/assets/images/Heart_02.png"
+                                        alt="curtida"
+                                    />
+                                    <span>{curtida}</span>
+                                </S.ActionButton>
+                            </S.Botoes>
+                        </S.PiuText>
+                    </S.ContPiu>
+                </S.Pius>
+            ))}
+        </div>
     );
 };
 
+export const DarPiu: React.FC = () => {
+    const [pius, setPius] = useState('');
+    const [novoPiuText, setNovoPiuText] = useState('');
+    const handleNovoPiu = () => {
+        if (novoPiuText.trim() === '') return;
+
+        const novoPiu = [
+            {
+                Piuname: 'Heitor Zimbrão',
+                PiuArroba: '@heitorzimbrao',
+                ImgPerfil: '/assets/images/pedro-parente.png',
+                PiuText: novoPiuText
+            }
+        ];
+        setNovoPiuText('');
+    };
+    return (
+        <S.DarPiu>
+            <S.PiuTexxt
+                type="text"
+                placeholder="Quero dar um piu..."
+                value={novoPiuText}
+                onChange={(event) => setNovoPiuText(event.target.value)}
+            />
+            <S.Anexos>
+                <S.Imagens src="/assets\images\Image_02.png" alt="fotos" />
+                <S.Imagens src="/assets\images\Video.png" alt="videos" />
+                <S.Imagens src="/assets\images\frame-2.png" alt="pessoas" />
+                <S.Imagens src="/assets\images\Tag.png" alt="aa" />
+                <S.Imagens src="/assets\images\Frame-3.png" alt="aaa" />
+                <S.Send onClick={handleNovoPiu}>
+                    <img src="/assets/images/Paper_Plane.png" alt="send" />
+                </S.Send>
+            </S.Anexos>
+        </S.DarPiu>
+    );
+};
 export const PiuTrend: React.FC = () => {
-    return <S.PiuTrend />;
+    const Trends = [
+        {
+            PiuTrendImage: '/assets/images/GcUAaY7XAAAqbMH.png',
+            PiuTrendHeader: 'Acidente!',
+            PiuTrendText:
+                'Passageira derruba panela com feijoada dentro e deixa motorista'
+        },
+        {
+            PiuTrendImage:
+                '/assets/images/Raphinha-comemora-gol-marcado-pelo-Brasil-contra-a-Venezuela-pelas-Eliminatorias-1920x1280.png',
+            PiuTrendHeader: 'GOLLLL!!!',
+            PiuTrendText:
+                'Mesmo com a seleção jogando mal pra cara***, temos um golaço'
+        },
+        {
+            PiuTrendImage: '/assets/images/GcWkj9aXoAASF0t.png',
+            PiuTrendHeader: 'Passado Posto à Tona',
+            PiuTrendText:
+                'Jovem tira foto no instante em que avião colide com um prédio, o mesmo garoto no futuro voa alto'
+        },
+        {
+            PiuTrendImage: '/assets/images/GcQqG2aa4AA2rN9.png',
+            PiuTrendHeader: 'Trânsito complicado',
+            PiuTrendText:
+                'Motorista sem óculos bate em poste parado e quase perde a vida'
+        }
+    ];
+    return (
+        <div>
+            {Trends.map(({ PiuTrendImage, PiuTrendHeader, PiuTrendText }) => (
+                <S.PiuTrend>
+                    <S.PiuTrendImage src={PiuTrendImage} alt="trends" />
+                    <S.Piutrenddiv>
+                        <S.PiuTrendHeader>{PiuTrendHeader}</S.PiuTrendHeader>
+                        <S.PiuTrendText>{PiuTrendText}</S.PiuTrendText>
+                    </S.Piutrenddiv>
+                </S.PiuTrend>
+            ))}
+        </div>
+    );
 };
